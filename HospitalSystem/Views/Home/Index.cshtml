@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<table>
+    <tr>
+        <td><h2>Thank you for choosing our Hospital Management System</h2></td>
+    </tr>
+    <tr>
+        <td>
+            <img src="~/Images/doctor.png" height="100px" width="100px" />
+            <img src="~/Images/patient.png" height="100px" width="100px" />
+            <img src="~/Images/visits.png" height="100px" width="100px" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Doctors", "Index", "tblDoctors") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Patients", "Index", "tblPatients")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Visits", "Index", "tblVisits")
+        </td>
+    </tr>
+</table>

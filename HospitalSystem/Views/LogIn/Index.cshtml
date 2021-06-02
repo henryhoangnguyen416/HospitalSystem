@@ -1,0 +1,29 @@
+﻿@model HospitalSystem.Models.Validation
+
+@{
+    ViewBag.Title = "Log In";
+    Layout = "~/Views/Shared/_LogInLayout.cshtml";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm("Index", "LogIn", FormMethod.Get))
+{
+    <div>
+        <table>
+            <tr>
+                <td>@Html.LabelFor(x => x.Email): </td>
+                <td>@Html.TextBoxFor(x => x.Email, "email")</td>
+                <td>@Html.ValidationMessageFor(x => x.Email, "", new { @style = "colord:red" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.Password): </td>
+                <td>@Html.TextBoxFor(x => x.Password, "password")</td>
+                <td>@Html.ValidationMessageFor(x => x.Password, "", new { @style = "colord:red" })</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Log In" /></td>
+            </tr>
+        </table>
+    </div>
+}
+

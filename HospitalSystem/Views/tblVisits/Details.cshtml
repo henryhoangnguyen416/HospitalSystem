@@ -1,0 +1,66 @@
+﻿@model HospitalSystem.Models.tblVisit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Visit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Time Admitted
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time_Admitted)
+        </dd>
+
+        <dt>
+            Time Discharged
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time_Discharged)
+        </dd>
+
+        <dt>
+            Room Number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complaint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complaint)
+        </dd>
+
+        <dt>
+            Doctor
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblDoctor.Name)
+        </dd>
+
+        <dt>
+            Patient
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblPatient.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

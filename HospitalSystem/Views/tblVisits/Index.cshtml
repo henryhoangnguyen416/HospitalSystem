@@ -1,0 +1,95 @@
+﻿@model IEnumerable<HospitalSystem.Models.tblVisit>
+
+@{
+    ViewBag.Title = "Visits";
+}
+
+<h2>Visits</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "tblVisits", FormMethod.Get))
+{
+    <b>Search By: </b>
+    @Html.RadioButton("SearchBy", "TimeAdmitted", true)<text>Time Admitted</text>
+    @Html.RadioButton("SearchBy", "TimeDischarged")<text>Time Discharged</text>
+    <br />
+    <table>
+        <tr>
+            <td>Year</td>
+            <td>@Html.TextBox("year")</td>
+        </tr>
+        <tr>
+            <td>Month</td>
+            <td>@Html.TextBox("month")</td>
+        </tr>
+        <tr>
+            <td>Day</td>
+            <td>@Html.TextBox("day")</td>
+        </tr>
+    </table>
+    
+    <input type="submit" value="Search Before" />
+}
+<table class="table">
+    <tr>
+        <th>
+            Time Admitted
+        </th>
+        <th>
+            Time Discharged
+        </th>
+        <th>
+            Room Number
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Complaint)
+        </th>
+        <th>
+            Doctor
+        </th>
+        <th>
+            Patient
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="4">No Match For Search Criteria</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time_Admitted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time_Discharged)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Complaint)
+                </td>
+                <td>
+                    @Html.ActionLink(item.tblDoctor.Name, "Details", "tblDoctors", new { id = item.tblDoctor.Id }, null)
+                </td>
+                <td>
+                    @Html.ActionLink(item.tblPatient.Name, "Details", "tblPatients", new { id = item.tblPatient.ID }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    }
+</table>
